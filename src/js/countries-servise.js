@@ -1,8 +1,18 @@
-function fetchCountries(searchQuery) {
-  const url = `https://restcountries.eu/rest/v2/name/${searchQuery}`;
-  return fetch(url)
-    .then(respons => console.log(respons.json()))
-    .catch(error => alert(error));
-}
+export default class NewsCountries {
+  constructor() {
+    this.searchQuery = '';
+  }
 
-export default fetchCountries;
+  fetchCountries() {
+    const url = `https://restcountries.eu/rest/v2/name/${this.searchQuery}`;
+    fetch(url).then(respons => respons.json());
+  }
+
+  get query() {
+    return this.searchQuery;
+  }
+
+  set query(newQuery) {
+    this.searchQuery = newQuery;
+  }
+}
