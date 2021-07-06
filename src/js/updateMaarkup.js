@@ -1,2 +1,1 @@
-import refs from './refs.js'
-function updateMarkup()
+import refs from './refs.js';

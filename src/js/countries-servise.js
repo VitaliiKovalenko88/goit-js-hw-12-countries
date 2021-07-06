@@ -1,6 +1,6 @@
 export default class NewsCountries {
   constructor() {
-    this.searchQuery = '';
+    this.searchQuery;
   }
 
   fetchCountries() {
