@@ -31,14 +31,10 @@ function fetchCountries() {
     if (data.length > 10) {
       showAlert();
       return;
-    }
-
-    if (data.length > 1 && data.length <= 10) {
+    } else if (data.length > 1 && data.length <= 10) {
       creatCountries(data);
       showNotice();
-    }
-
-    if (data.length === 1) {
+    } else if (data.length === 1) {
       creatCountry(data);
       showSuccess();
     } else {
