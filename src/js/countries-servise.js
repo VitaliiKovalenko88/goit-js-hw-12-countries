@@ -1,11 +1,15 @@
 export default class NewsCountries {
   constructor() {
-    this.searchQuery;
+    this.searchQuery = '';
   }
 
   fetchCountries() {
     const url = `https://restcountries.eu/rest/v2/name/${this.searchQuery}`;
-    fetch(url).then(respons => respons.json());
+    return fetch(url)
+      .then(respons => respons.json())
+      .then(data => {
+        return data;
+      });
   }
 
   get query() {

@@ -15,22 +15,25 @@ const newCountries = new NewsCountries();
 refs.input.addEventListener('input', debounce(onSearch, 500));
 
 function onSearch(e) {
-  // clearCardContainer();
+  clearCardContainer();
   newCountries.query = e.target.value;
   if (!newCountries.query) {
     showInfo();
     return;
   }
+
+  fetchCountries();
 }
 
-function fetchArticals() {
-  newCountries.fetchCountries(newCountries.query).then(data => {
+function fetchCountries() {
+  newCountries.fetchCountries().then(data => {
+    console.log(data);
     if (data.length > 10) {
       showAlert();
       return;
     }
 
-    if (data.length >= 2 && data.length <= 10) {
+    if (data.length > 1 && data.length <= 10) {
       creatCountries(data);
       showNotice();
     }
@@ -39,7 +42,7 @@ function fetchArticals() {
       creatCountry(data);
       showSuccess();
     } else {
-      clearCardContainer(data);
+      clearCardContainer();
       showError();
     }
   });
