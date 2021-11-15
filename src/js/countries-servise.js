@@ -4,7 +4,7 @@ export default class NewsCountries {
   }
 
   fetchCountries() {
-    const url = `https://restcountries.eu/rest/v3.1/name/${this.searchQuery}`;
+    const url = `https://restcountries.com/v3.1/name/${this.searchQuery}`;
     return fetch(url)
       .then(respons => respons.json())
       .then(data => {
